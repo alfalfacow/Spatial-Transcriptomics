@@ -11,11 +11,11 @@ First, you will need to obtain a spatial transcriptomics dataset, either from a 
 To read the dataset into Seurat as a Seurat object, the files for each ONE specific sample need to be organized in a very specific structure in order for Seurat to be able to recognize it:
 
 * (Folder) Sample name
-*  -> (File) (SampleName)_filtered_feature_bc_matrix.h5
-*  -> (Folder) (SampleName)
-*    -> (File) tissue_lowres_image.png
-*    -> (File) scalefactors_json.json
-*    -> (File) tissue_positions_list.csv
+* -> (File) (SampleName)_filtered_feature_bc_matrix.h5
+* -> (Folder) (SampleName)
+* ->-> (File) tissue_lowres_image.png
+* ->-> (File) scalefactors_json.json
+* ->-> (File) tissue_positions_list.csv
 
 You may need to manually change the contents and names of the files in order to achieve this structure. Now we are ready to read our data on R studio!
 
@@ -234,6 +234,7 @@ Feel free to reach out of any of the code does not work as intended! I have also
 [Seurat Command List](https://satijalab.org/seurat/articles/essential_commands.html#seurat-standard-worflow)
 [JEFWorks Lab integration](https://jef.works/blog/2025/04/22/harmony-with-sketching-in-seurat/)
 [Preprocessing/QC and Normalization](https://yu-tong-wang.github.io/talk/sc_st_data_analysis_R.html#quality-contro)
+
 
 
 
