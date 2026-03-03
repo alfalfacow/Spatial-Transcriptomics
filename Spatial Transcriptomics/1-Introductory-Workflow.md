@@ -230,10 +230,11 @@ After following this workflow, you have successfully:
 Feel free to reach out of any of the code does not work as intended! I have also linked some references I used below :)
 
 ## References
-*[Seurat ST Vignette](https://satijalab.org/seurat/articles/spatial_vignette)
-*[Seurat Command List](https://satijalab.org/seurat/articles/essential_commands.html#seurat-standard-worflow)
-*[JEFWorks Lab integration](https://jef.works/blog/2025/04/22/harmony-with-sketching-in-seurat/)
-*[Preprocessing/QC and Normalization](https://yu-tong-wang.github.io/talk/sc_st_data_analysis_R.html#quality-contro)
+* [Seurat ST Vignette](https://satijalab.org/seurat/articles/spatial_vignette)
+* [Seurat Command List](https://satijalab.org/seurat/articles/essential_commands.html#seurat-standard-worflow)
+* [JEFWorks Lab integration](https://jef.works/blog/2025/04/22/harmony-with-sketching-in-seurat/)
+* [Preprocessing/QC and Normalization](https://yu-tong-wang.github.io/talk/sc_st_data_analysis_R.html#quality-contro)
+
 
 
 
