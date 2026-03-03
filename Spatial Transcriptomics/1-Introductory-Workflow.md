@@ -180,7 +180,7 @@ The UMAP is a rather colorful graph showing populations of clustered cells on a 
 
 The second figure from the SpatialDimPlot allows us to see how neigboring cells are clustered together on the tissue image.
 
-Now we are ready to assign cel type to each cluster!
+Now we are ready to assign cell type to each cluster!
 
 ### 4.2: Finding gene markers for each population
 Seurat has a built in function called "FindMarkers", which allows us to quantify the genes that are most upregulated or downregulated in a specific cluster number, compared to all other clusters. FindMarkers creates a dataframe with information on the genes that are markers, logFC values (quantifying how upregulated/downregulated that marker is compared to other clusters), and p-values.
@@ -233,6 +233,7 @@ Feel free to reach out of any of the code does not work as intended! I have also
 * [Seurat ST Vignette](https://satijalab.org/seurat/articles/spatial_vignette)
 * [Seurat Command List](https://satijalab.org/seurat/articles/essential_commands.html#seurat-standard-worflow)
 * [Preprocessing/QC and Normalization](https://yu-tong-wang.github.io/talk/sc_st_data_analysis_R.html#quality-contro)
+
 
 
 
