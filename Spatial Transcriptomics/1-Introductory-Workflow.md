@@ -161,9 +161,9 @@ The end result/goal of cell clustering is a UMAP plot, which clusters similar ce
 ```
 #Playing around with the dimensions of PCA/UMAP can result in different clustering algorithms.
 SeuratObject_subset <- RunPCA(SeuratObject_subset, assay = "SCT", verbose = FALSE)
-SeuratObject_subset <- FindNeighbors(SeuratObject_subset, reduction = "pca", dims = 1:50)
+SeuratObject_subset <- FindNeighbors(SeuratObject_subset, reduction = "pca", dims = 1:30)
 SeuratObject_subset <- FindClusters(SeuratObject_subset, verbose = FALSE)
-SeuratObject_subset <- RunUMAP(SeuratObject_subset, reduction = "pca", dims = 1:50)
+SeuratObject_subset <- RunUMAP(SeuratObject_subset, reduction = "pca", dims = 1:30)
 
 #UMAP plot, using DimPLot()
 DimPlot(SeuratObject_subset, reduction = "umap", label = TRUE) 
@@ -233,6 +233,7 @@ Feel free to reach out of any of the code does not work as intended! I have also
 * [Seurat ST Vignette](https://satijalab.org/seurat/articles/spatial_vignette)
 * [Seurat Command List](https://satijalab.org/seurat/articles/essential_commands.html#seurat-standard-worflow)
 * [Preprocessing/QC and Normalization](https://yu-tong-wang.github.io/talk/sc_st_data_analysis_R.html#quality-contro)
+
 
 
 
