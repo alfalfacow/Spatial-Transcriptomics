@@ -6,16 +6,16 @@ The two main types of ST are imaging based (quantifies gene expression for selec
 These instructions are a compilation of the common workflow for dealing with sequencing based ST (of the Visium 10x plaform) through the Seurat package in R.
 
 ## Step 1: Data Entry
-First, you will need to obtain a spatial transcriptomics dataset, either from a publically accessible dataset or one you generated yourself. These instructions will be using the (GSE281978)[https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE281978] series from the Gene Expression Omnibus (GEO) for Head and Neck Cancer (HNSC). The dataset can be downloaded as a tar file at the bottom of the page.
+First, you will need to obtain a spatial transcriptomics dataset, either from a publically accessible dataset or one you generated yourself. These instructions will be using the [GSE281978](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE281978) series from the Gene Expression Omnibus (GEO) for Head and Neck Cancer (HNSC). The dataset can be downloaded as a tar file at the bottom of the page.
 
 To read the dataset into Seurat as a Seurat object, the files for each ONE specific sample need to be organized in a very specific structure in order for Seurat to be able to recognize it:
 
-(Folder) Sample name
-  -> (File) (SampleName)_filtered_feature_bc_matrix.h5
-  -> (Folder) (SampleName)
-    -> (File) tissue_lowres_image.png
-    -> (File) scalefactors_json.json
-    -> (File) tissue_positions_list.csv
+*(Folder) Sample name
+*  -> (File) (SampleName)_filtered_feature_bc_matrix.h5
+*  -> (Folder) (SampleName)
+*    -> (File) tissue_lowres_image.png
+*    -> (File) scalefactors_json.json
+*    -> (File) tissue_positions_list.csv
 
 You may need to manually change the contents and names of the files in order to achieve this structure. Now we are ready to read our data on R studio!
 
@@ -68,7 +68,7 @@ SpatialFeaturePlot(
 ```
 The violin plots should show that each of these metrics are rather widely distributed, with some points close to 0 and others ranging from 10 thousand for nFeature_Spatial to 40 thousand for nCount_Spatial! Our next step is to filter out low quality points of each of these metrics.
 
-Common thresholds for quality control have been taken from this (paper)[https://pmc.ncbi.nlm.nih.gov/articles/PMC11655296/]:
+Common thresholds for quality control have been taken from this [paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC11655296/):
 1. nFeature_Spatial less than 200 or greater than 7,500
 2. nCount_Spatial less than 250 or greater than 50,000
 3. percent.mt > 15%
@@ -198,7 +198,7 @@ VlnPlot(SeuratObject_subset, features = c("gene1", "gene2", "gene3"))
 ```
 
 ### 4.3: Manually annotating cell type
-We clustered our cells into similar populations (yay!), but now we have to decide the specific cell type that each cluster represents. One way to do this is to individually look at the strongest markers that were identified, using these markers to guide our manual labeling of each cell type. For example, CD3, CD4 and CD8 are well-established T cell markers, according to this (resource)[https://www.antibodies.com/primary-antibodies/cell-markers/immune-cell-markers]. There are also automatic computational methods to assign cell types based on a reference dataset, but results are highly variable.
+We clustered our cells into similar populations (yay!), but now we have to decide the specific cell type that each cluster represents. One way to do this is to individually look at the strongest markers that were identified, using these markers to guide our manual labeling of each cell type. For example, CD3, CD4 and CD8 are well-established T cell markers, according to this [resource](https://www.antibodies.com/primary-antibodies/cell-markers/immune-cell-markers). There are also automatic computational methods to assign cell types based on a reference dataset, but results are highly variable.
 
 The manual annotation is very subjective and prone to error, but it allows for more control and is informed by known markers. No single technique for annotation is perfect, and unfortunately cell type annotation is one of the more "unstable" aspects of ST analyses.
 
@@ -230,13 +230,8 @@ After following this workflow, you have successfully:
 Feel free to reach out of any of the code does not work as intended! I have also linked some references I used below :)
 
 ## References
-(Seurat ST Vignette)[https://satijalab.org/seurat/articles/spatial_vignette]
-(Seurat Command List)[https://satijalab.org/seurat/articles/essential_commands.html#seurat-standard-worflow]
-(JEFWorks Lab integration)[https://jef.works/blog/2025/04/22/harmony-with-sketching-in-seurat/]
-(Preprocessing/QC and Normalization)[https://yu-tong-wang.github.io/talk/sc_st_data_analysis_R.html#quality-contro]
-
-(Seurat "Intro to Integration")[https://satijalab.org/seurat/articles/integration_introduction]
-(Seurat "Integration Tutorial")[https://satijalab.org/seurat/archive/v3.0/immune_alignment.html]
-(Seurat "Merge Tutorial")[https://satijalab.org/seurat/archive/v4.3/merge]
-(Seurat "Reciprocal PCA Integration")[https://satijalab.org/seurat/articles/integration_rpca.html]
+[Seurat ST Vignette](https://satijalab.org/seurat/articles/spatial_vignette)
+[Seurat Command List](https://satijalab.org/seurat/articles/essential_commands.html#seurat-standard-worflow)
+[JEFWorks Lab integration](https://jef.works/blog/2025/04/22/harmony-with-sketching-in-seurat/)
+[Preprocessing/QC and Normalization](https://yu-tong-wang.github.io/talk/sc_st_data_analysis_R.html#quality-contro)
 
