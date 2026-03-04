@@ -79,7 +79,7 @@ Common thresholds for quality control have been taken from this [paper](https://
 
 SeuratObject_Subset <- subset(
   SeuratObject, subset = nFeature_Spatial < 7500 & nFeature_Spatial > 200 &
-  nCount_Spatial < 50,000 & nCount_Spatial > 250 & percent.mt < 15 & percent.ribo < 40)
+  nCount_Spatial < 50000 & nCount_Spatial > 250 & percent.mt < 15 & percent.ribo < 40)
 
 #You may plot new violin plots to verify filtering
 VlnPlot(
@@ -233,6 +233,7 @@ Feel free to reach out of any of the code does not work as intended! I have also
 * [Seurat ST Vignette](https://satijalab.org/seurat/articles/spatial_vignette)
 * [Seurat Command List](https://satijalab.org/seurat/articles/essential_commands.html#seurat-standard-worflow)
 * [Preprocessing/QC and Normalization](https://yu-tong-wang.github.io/talk/sc_st_data_analysis_R.html#quality-contro)
+
 
 
 
