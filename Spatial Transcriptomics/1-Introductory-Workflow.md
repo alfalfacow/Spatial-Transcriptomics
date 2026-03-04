@@ -49,8 +49,8 @@ The first two have been stored as part of the meta.data of the Seurat object and
 #PercentageFeatureSet calculates the percent of all counts that include a certain pattern
 #The following code calculates the percent of all counts that belong to mitochondrial DNA (named "MT-XX" or "RPS"/"RPL", apparently Regex notation) and puts it into newly defined meta.data columns
 
-SeuratObject[["percent.mt"]] <- PercentageFeatureSet(object = HNSCC, pattern = "^MT-")
-SeuratObject[["percent.ribo"]] <- PercentageFeatureSet(HNSCC, pattern = "^RP[SL]")
+SeuratObject[["percent.mt"]] <- PercentageFeatureSet(object = SeuratObject, pattern = "^MT-")
+SeuratObject[["percent.ribo"]] <- PercentageFeatureSet(SeuratObject, pattern = "^RP[SL]")
 
 #Visualize the current distribution of each of these metrics with a violin plot
 VlnPlot(
@@ -233,6 +233,7 @@ Feel free to reach out of any of the code does not work as intended! I have also
 * [Seurat ST Vignette](https://satijalab.org/seurat/articles/spatial_vignette)
 * [Seurat Command List](https://satijalab.org/seurat/articles/essential_commands.html#seurat-standard-worflow)
 * [Preprocessing/QC and Normalization](https://yu-tong-wang.github.io/talk/sc_st_data_analysis_R.html#quality-contro)
+
 
 
 
