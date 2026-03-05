@@ -5,6 +5,22 @@ The two main types of ST are imaging based (quantifies gene expression for selec
 
 These instructions are a compilation of the common workflow for dealing with sequencing based ST (of the Visium 10x plaform) through the Seurat package in R.
 
+##Table of Contents
+1: Data Entry
+
+2: Data Quality Control and Preprocessing
+* 2.1: Quality Control
+* 2.2: Normalization of Data
+
+3: Optional Visualizations
+* 3.1 Gene Expression Visualization
+* 3.2: Constructing and Visualizing Gene Scores
+
+4: Cell Clustering and Manual Cell Type Annotation
+* 4.1: Dimension Reduction and Clustering
+* 4.2: Finding gene markers for each cluster
+* 4.3: Manually annotating cell type
+
 ## Step 1: Data Entry
 First, you will need to obtain a spatial transcriptomics dataset, either from a publically accessible dataset or one you generated yourself. An example is the [GSE281978](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE281978) series from the Gene Expression Omnibus (GEO) for Head and Neck Cancer (HNSC). The dataset can be downloaded as a tar file at the bottom of the page.
 
@@ -239,6 +255,7 @@ Feel free to reach out of any of the code does not work as intended! I have also
 * [Basic explanation of PCA, t-SNE, UMAP](https://bioconductor.org/books/3.15/OSCA.basic/dimensionality-reduction.html)
 * [More on dimensional reduction](https://biostatsquid.com/pca-umap-tsne-comparison/#:~:text=Final%20notes,the%20data%20are%20primarily%20linear.)
 * [More on dimensional reduction 2](https://carnotresearch.medium.com/understanding-dimensionality-reduction-pca-vs-t-sne-vs-umap-vs-fit-sne-vs-largevis-vs-laplacian-13d0be9ef7f4)
+
 
 
 
