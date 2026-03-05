@@ -234,6 +234,11 @@ Feel free to reach out of any of the code does not work as intended! I have also
 * [Seurat Command List](https://satijalab.org/seurat/articles/essential_commands.html#seurat-standard-worflow)
 * [Preprocessing/QC and Normalization](https://yu-tong-wang.github.io/talk/sc_st_data_analysis_R.html#quality-contro)
 
+## Food For Thought
+* [Biologists, stop putting UMAP plots in your papers](https://simplystatistics.org/posts/2024-12-23-biologists-stop-including-umap-plots-in-your-papers/)
+* [Basic explanation of PCA, t-SNE, UMAP](https://bioconductor.org/books/3.15/OSCA.basic/dimensionality-reduction.html)
+
+
 
 
 
