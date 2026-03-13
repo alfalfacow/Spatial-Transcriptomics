@@ -100,6 +100,7 @@ DimPlot(SeuratObject_subset, reduction = "umap.SCT", label = TRUE)  #using the r
 ```
 
 You should see the data clustered into distinct cell populations. Looks great! ... right?
+![Alt text](https://raw.githubusercontent.com/alfalfacow/Spatial-Transcriptomics/main/Images/fake-umap.png)
 
 ## 3.2: Oh No!
 As you can tell by the title of this section, there is a big problem!!! As mentioned in the introduction of this page, merging multiple datasets introduces batch effects, in which different samples are "biased" in a sense due to the unique technical environments that went into collecting each of these samples and the data involved.
