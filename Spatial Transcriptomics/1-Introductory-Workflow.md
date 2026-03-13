@@ -180,7 +180,7 @@ The end result/goal of cell clustering is a UMAP plot, which clusters similar ce
 #Playing around with the dimensions of PCA/UMAP can result in different clustering algorithms.
 SeuratObject_subset <- RunPCA(SeuratObject_subset, assay = "SCT", verbose = FALSE)
 SeuratObject_subset <- FindNeighbors(SeuratObject_subset, reduction = "pca", dims = 1:30)
-SeuratObject_subset <- FindClusters(SeuratObject_subset, verbose = FALSE)
+SeuratObject_subset <- FindClusters(SeuratObject_subset, resolution = 0.5, verbose = FALSE) #changing the resolution changes how broadly or specifically the algorithm clusters the cell populations. A low resolution (close to 0) results in very broad clustering (fewer clusters), while high resolution results in very specific clustering (more clusters)
 SeuratObject_subset <- RunUMAP(SeuratObject_subset, reduction = "pca", dims = 1:30)
 
 #UMAP plot, using DimPLot()
@@ -257,6 +257,7 @@ Feel free to reach out of any of the code does not work as intended! I have also
 * [Basic explanation of PCA, t-SNE, UMAP](https://bioconductor.org/books/3.15/OSCA.basic/dimensionality-reduction.html)
 * [More on dimensional reduction](https://biostatsquid.com/pca-umap-tsne-comparison/#:~:text=Final%20notes,the%20data%20are%20primarily%20linear.)
 * [More on dimensional reduction 2](https://carnotresearch.medium.com/understanding-dimensionality-reduction-pca-vs-t-sne-vs-umap-vs-fit-sne-vs-largevis-vs-laplacian-13d0be9ef7f4)
+
 
 
 
