@@ -115,4 +115,4 @@ DimPlot(PNI, reduction = "umap.SCT", label = TRUE)
 ```
 
 The resulting UMAP plot should have a major problem: the cells seem to be clustered together based on dataset type! Here is an example:
-![Bad UMAP](https://raw.githubusercontent.com/alfalfacow/Spatial-Transcriptomics/main/Images/bad-umap.png)
+![Alt text](https://raw.githubusercontent.com/alfalfacow/Spatial-Transcriptomics/main/Images/bad-umap.png)
