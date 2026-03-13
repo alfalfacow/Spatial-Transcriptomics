@@ -162,4 +162,4 @@ DimPlot(UMAP, reduction = "umap.SCT", label = TRUE)
 ```
 
 When displaying the new and improved UMAP with the dataset label, you should notice that all the datasets are randomly scattered all throughout the plot, with no noticeable clustering by dataset like before. In other words, the batch effects have been corrected, hooray! :)
-![Alt text](https://raw.githubusercontent.com/alfalfacow/Spatial-Transcriptomics/main/Images/harmony-umap.png)
+![Alt text](https://raw.githubusercontent.com/alfalfacow/Spatial-Transcriptomics/main/Images/harmony-umap-yay.png)
