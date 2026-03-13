@@ -45,7 +45,7 @@ library(tidyverse)
 set.seed(123) #Some steps (like UMAP) depend on random number generators, so we should set a seed in order to make our work reproducible! 123 is an arbitrary number and can be anything
 
 data.dir <- "Path/To/The/SampleName/Folder/Containing/Your/Dataset" #ex: /Users/alfred/Desktop/GSM8633891
-NameOfSeuratObject <- Load10X_Spatial(data.dir, filename="(SampleName)_filtered_feature_bc_matrix.h5")
+NameOfSeuratObject <- Load10X_Spatial(data.dir, filename="(SampleName)_filtered_feature_bc_matrix.h5") #filename should be whatever name is in the folder for the feature matrix file
 glimpse(HNSCC) #Allows you to look at the type of data included in a Seurat Object
 
 ```
@@ -257,6 +257,7 @@ Feel free to reach out of any of the code does not work as intended! I have also
 * [Basic explanation of PCA, t-SNE, UMAP](https://bioconductor.org/books/3.15/OSCA.basic/dimensionality-reduction.html)
 * [More on dimensional reduction](https://biostatsquid.com/pca-umap-tsne-comparison/#:~:text=Final%20notes,the%20data%20are%20primarily%20linear.)
 * [More on dimensional reduction 2](https://carnotresearch.medium.com/understanding-dimensionality-reduction-pca-vs-t-sne-vs-umap-vs-fit-sne-vs-largevis-vs-laplacian-13d0be9ef7f4)
+
 
 
 
