@@ -14,8 +14,8 @@ We started some introductory data entry and analyses for a single visium spatial
 * 3.2: Oh No! 
 * 3.3: Integration
 
-## Step 1: Data Entry and merging
-# 1.1: Data Entry
+# Step 1: Data Entry and merging
+## 1.1: Data Entry
 First step: load all necessary libraries!
 ```
 #Same as before
@@ -47,7 +47,7 @@ object2$dataset <- "SampleName2" #assigning unique project name to each object
 
 The third line (object1$dataset) creates a new metadata column that tracks the dataset of each spatial transcriptomics spot so that it can be traced back to the original dataset during downstream analyses. 
 
-# 1.2: Merging
+## 1.2: Merging
 Next, we want to merge our multiple Seurat objects into a single Seurat object! We can do this using the built in merge() function in Seurat:
 ```
 merged_object <-merge(x = object1, y= list(object2, object3, ...),
@@ -59,7 +59,7 @@ merged_object <-merge(x = object1, y= list(object2, object3, ...),
 The result should be a single object (named whatever name you put for "merged_object") containing the merged data of each sample!
 
 
-## Step 2: Quality Control and Preprocessing (normalization)
+# Step 2: Quality Control and Preprocessing (normalization)
 Hooray! Now we have a single Seurat object containing the merged data of each sample of interest. Now we proceed with quality control and normalization as we did before (See 1-Introductory-Workflow)
 
 ```
@@ -83,10 +83,10 @@ table(merged_object_subset@meta.data$dataset)
 
 ```
 
-## Step 3: Cell Clustering and integration
+# Step 3: Cell Clustering and integration
 As you may remember, the next step after quality control and data preprocessing is to run clustering algorithms on our data to identify populations of cells with similar gene expression data. This allows us to better isolate specific cell types for downstream analyses.
 
-# 3.1: Dimension Reduction and clustering
+## 3.1: Dimension Reduction and clustering
 The instructions for this step are similar to before as well:
 ```
 #Standard workflow for running PCA clustering and UMAP
@@ -101,7 +101,7 @@ DimPlot(SeuratObject_subset, reduction = "umap.SCT", label = TRUE)  #using the r
 
 You should see the data clustered into distinct cell populations. Looks great! ... right?
 
-# 3.2: Oh No!
+## 3.2: Oh No!
 As you can tell by the title of this section, there is a big problem!!! As mentioned in the introduction of this page, merging multiple datasets introduces batch effects, in which different samples are "biased" in a sense due to the unique technical environments that went into collecting each of these samples and the data involved.
 
 To see the effect of batch effects, we can display the UMAP plot, with the spots labeled by dataset instead of by the UMAP clusters:
