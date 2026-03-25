@@ -57,41 +57,43 @@ object2$dataset <- "SampleName2" #assigning unique project name to each object
 
 The third line (object1$dataset) creates a new metadata column that tracks the dataset of each spatial transcriptomics spot so that it can be traced back to the original dataset during downstream analyses. 
 
-## 1.2: Merging
+# Step 2: Quality Control and Preprocessing
+Now we proceed with quality control and normalization as we did before (See 1-Introductory-Workflow)
+
+```
+#run the following steps for each sample/object
+
+#Calculating mitochondrial and ribosomal DNA percentages
+object1[["percent.mt"]] <- PercentageFeatureSet(object = object1, pattern = "^MT-")
+object1[["percent.ribo"]] <- PercentageFeatureSet(objetc2, pattern = "^RP[SL]")
+
+#Subsetting based on exclusion criteria
+object1 <- subset(
+  merged_object, subset = nFeature_Spatial < 7500 & nFeature_Spatial > 200 &
+  nCount_Spatial < 50000 & nCount_Spatial > 250 & percent.mt < 15 & percent.ribo < 40)
+
+#Normalization of data using SCTransform
+object1 <- SCTransform(object1, assay = "Spatial")
+
+```
+
+
+## 2.2: Merging
 Next, we want to merge our multiple Seurat objects into a single Seurat object! We can do this using the built in merge() function in Seurat:
 ```
 merged_object <-merge(x = object1, y= list(object2, object3, ...),
                  add.cell.ids = c("SampleName1", "SampleName2", "SampleName3", ...),
                  project = "MergedProject")
 
-#I'm actually not sure if add.cell.ids or project are 100% necessary, I will double check later
-```
-The result should be a single object (named whatever name you put for "merged_object") containing the merged data of each sample!
-
-
-# Step 2: Quality Control and Preprocessing (normalization)
-Hooray! Now we have a single Seurat object containing the merged data of each sample of interest. Now we proceed with quality control and normalization as we did before (See 1-Introductory-Workflow)
-
-```
 #Quick check to see number of cells from each sample!
 table(merged_object@meta.data$dataset)
 
-#Calculating mitochondrial and ribosomal DNA percentages
-merged_object[["percent.mt"]] <- PercentageFeatureSet(object = merged_object, pattern = "^MT-")
-merged_object[["percent.ribo"]] <- PercentageFeatureSet(merged_object, pattern = "^RP[SL]")
-
-#Subsetting based on exclusion criteria
-merged_object_subset <- subset(
-  merged_object, subset = nFeature_Spatial < 7500 & nFeature_Spatial > 200 &
-  nCount_Spatial < 50000 & nCount_Spatial > 250 & percent.mt < 15 & percent.ribo < 40)
-
-#Normalization of data using SCTransform
-merged_object_subset <- SCTransform(merged_object_subset, assay = "Spatial")
-
-#Quick check to see if the number of viable cells decreased after exclusion
-table(merged_object_subset@meta.data$dataset)
-
+#I'm actually not sure if add.cell.ids or project are 100% necessary, I will double check later
 ```
+The result should be a single object (named whatever name you put for "merged_object") containing the merged data of each sample. 
+
+Hooray! Now we have a single Seurat object containing the merged data of each sample of interest. 
+
 
 # Step 3: Cell Clustering and integration
 As you may remember, the next step after quality control and data preprocessing is to run clustering algorithms on our data to identify populations of cells with similar gene expression data. This allows us to better isolate specific cell types for downstream analyses.
